@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>feliz._2sxc</RootNamespace>
+    <PackageId>Feliz.2sxc</PackageId>
+    <Version>0.1.0</Version>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <Authors>Stefan Cullmann</Authors>
+    <Company>DnnFable</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/DnnFable/Feliz.2sxc</PackageProjectUrl>
+    <PackageTags>dnn 2sxc feliz fable-compiler</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Bindings and Helpers to create Apps for 2sxc with Feliz and Fable Compiler</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="List.fs" />
+    <Compile Include="Router.fs" />
+    <Compile Include="SxcBindings.fs" />
+    <Compile Include="SxcApi.fs" />
+    <Compile Include="SxcContext.fs" />
+    <Compile Include="SxcToolbar.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="*.fsproj; **\*.fs" PackagePath="fable\" />
+  </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
+</Project>
