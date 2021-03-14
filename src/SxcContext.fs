@@ -13,16 +13,9 @@ module Sxc =
           Edition: string
           ApiEdition: string
           Api: SxcApi.Api
-          ModuleId: int
-          BasePath: string }
+          ModuleId: int }
 
-let getBasePath () : string =
 
-    let anchor =
-        document.createElement ("a") :?> HTMLAnchorElement
-
-    anchor.href <- document.baseURI
-    anchor.pathname
 
 /// Connects to the current 2sxc instance and returns a Context
 ///
@@ -43,5 +36,4 @@ let configure (container: HTMLElement) =
       Sxc.Instance = instance
       Sxc.Edition = container.dataset.["edition"]
       Sxc.ApiEdition = container.dataset.["apiedition"]
-      Sxc.ModuleId = instance.id
-      Sxc.BasePath = getBasePath () }
+      Sxc.ModuleId = instance.id }

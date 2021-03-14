@@ -38,7 +38,7 @@ let toolbar (person: PersonInfo option) =
                       bi.command.new' () ]
 
 [<ReactComponent>]
-let Person sxc refresh person =
+let Person (sxc: Sxc.Context) refresh person =
     Html.li [ prop.toolbar (toolbar (Some person))
               prop.ref (React.useToolbarRef sxc refresh)
               prop.key person.Id
@@ -50,12 +50,16 @@ let Person sxc refresh person =
 
 ### Routing just works
 
-Enhanced [Feliz.Router](https://github.com/Zaid-Ajaj/Feliz.Router/) is inialized with the current url of the page within DNN where the 2sxc is hosted. 
+Enhanced [Feliz.Router](https://github.com/Zaid-Ajaj/Feliz.Router/) retrieves the current url of the cms page via document.baseUri.
+Therefore the page should include a [base](https://developer.mozilla.org/docs/Web/HTML/Element/base) tag.
 
 ```fsharp
+feliz.Router
+Feliz.Router.BasePath
+
 [<ReactComponent>]
-let App (sxc: Sxc.Context) =
-    let (url, urlChanged) = router.useBasePath (sxc.BasePath)
+let App () =
+    let (url, urlChanged) = router.useBaseUri ()
 
     let activePage =
         match url.current with
@@ -68,4 +72,11 @@ let App (sxc: Sxc.Context) =
     React.router [ router.pathMode
                    router.onUrlChanged (urlChanged)
                    router.children [ activePage ]
+```
+
+There are three hooks available:
+```
+router.useBaseUri ()
+router.useBasePath (path: string)
+router.useBaseUrl (url: string list)
 ```
