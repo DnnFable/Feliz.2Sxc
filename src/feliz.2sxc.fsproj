@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>feliz._2sxc</RootNamespace>
     <PackageId>Feliz.2sxc</PackageId>
-    <Version>0.2.0</Version>
+    <Version>1.0.0</Version>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <Authors>Stefan Cullmann</Authors>
     <Company>DnnFable</Company>
@@ -15,7 +15,6 @@
     <Description>Bindings and Helpers to create Apps for 2sxc with Feliz and Fable Compiler</Description>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Feliz.Router.BasePath.fs" />
     <Compile Include="SxcBindings.fs" />
     <Compile Include="SxcApi.fs" />
     <Compile Include="SxcContext.fs" />

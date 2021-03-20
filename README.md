@@ -50,33 +50,8 @@ let Person (sxc: Sxc.Context) refresh person =
 
 ### Routing just works
 
-Enhanced [Feliz.Router](https://github.com/Zaid-Ajaj/Feliz.Router/) retrieves the current url of the cms page via document.baseUri.
-Therefore the page should include a [base](https://developer.mozilla.org/docs/Web/HTML/Element/base) tag.
+This part is now a separate package: [Feliz.Router.BasePath](https://github.com/DnnFable/Feliz.Router.BasePath).
 
-```fsharp
-feliz.Router
-Feliz.Router.BasePath
-
-[<ReactComponent>]
-let App () =
-    let (url, urlChanged) = router.useBaseUri ()
-
-    let activePage =
-        match url.current with
-        | [ ] -> Html.h1 "Home"
-        | [ "users" ] -> Html.h1 "Users page"
-        | [ "users"; Route.Int userId ] -> 
-           Html.h1 (sprintf "User ID %d" userId)
-        | _ -> Html.h1 "Not found"
-
-    React.router [ router.pathMode
-                   router.onUrlChanged (urlChanged)
-                   router.children [ activePage ]
 ```
-
-There are three hooks available:
-```
-router.useBaseUri ()
-router.useBasePath (path: string)
-router.useBaseUrl (url: string list)
+Install-Package Feliz.Router.BasePath
 ```
